@@ -1,3 +1,9 @@
+const fs = require('fs');
+
+const csv = require('csv-parser');
+
+const results = [];
+
 function jens_schmidt_algorithm(graph) {
     const n = graph.length;
   
@@ -33,7 +39,7 @@ function jens_schmidt_algorithm(graph) {
     }
   
     return true;
-  }
+}
   
   function dfs(graph, visited, current) {
     visited[current] = true;
@@ -45,15 +51,20 @@ function jens_schmidt_algorithm(graph) {
     }
   }
   
-  const snap_data = [
-    [1, 2],
-    [2, 3],
-    [3, 4]
-  ];
-  
-  const is_articulation_free = jens_schmidt_algorithm(snap_data);
-  
-    console.log(
-    "Is articulation-free after removing link directions:",
-    is_articulation_free
-  );
+  fs.createReadStream('./act-mooc/act-mooc/mooc_actions.tsv') //
+    .pipe(csv({
+        separator: 't'
+    }))
+    .on('data', (data) => results.push(data))
+    .on('end', () => {
+      const is_articulation_free = jens_schmidt_algorithm(results);
+
+      console.log(
+        "Is articulation-free after removing link directions:",
+        is_articulation_free
+      );
+    });
+// # Tests:  
+// - file: mooc_action_labels.tsv => output: true
+// - file: mooc_action_features.tsv => output: true
+// - file: mooc_actions.tsv => output: true
