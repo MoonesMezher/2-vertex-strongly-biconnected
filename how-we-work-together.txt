@@ -1,0 +1,19 @@
+- Rahaf + Bissan + Ibrahim:
+
+ Design and write Jabow algorithm code using C++ language
+
+ - Moones:
+
+ Converting both the Schmidt and Jabow algorithms to JavaScript (Node) to facilitate testing of data extracted from snap.
+
+ - Jalal + Rabee:
+
+ Testing data from snap on both Jabow and Schmidt algorithms in Node
+
+ - Kotaiba + Ganyar:
+
+ Improving the DFS algorithm code in addition to helping write the code for reading TSV files in Node
+
+ - Abbas + Riyad:
+
+ Design and write Schmidt algorithm code using C++
